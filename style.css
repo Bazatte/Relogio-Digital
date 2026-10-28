@@ -1,6 +1,3 @@
-/* ===== Passo 3 — CSS base e centralização ===== */
-
-/* Cores e fonte do projeto: mude aqui e muda em tudo */
 :root {
   --bg: #eceff0;
   --fg: #141d1c;
@@ -20,33 +17,27 @@ body {
   color: var(--fg);
   font-family: var(--fonte);
   display: grid;
-  place-items: center;   /* centraliza na horizontal e na vertical */
+  place-items: center;
   padding: 24px 16px;
 }
 
-
-/* ===== Passo 4 — Desenhar a moldura ===== */
-
 .moldura {
-  position: relative;                    /* ponto de referência para o ::before */
-  width: min(100%, 44rem);               /* nunca passa de 44rem nem da tela */
+  position: relative;
+  width: min(100%, 44rem);
   padding: clamp(1.75rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
   border: 1px solid var(--line);
   display: grid;
-  gap: 2rem;                             /* espaço entre os blocos */
+  gap: 2rem;
   text-align: center;
 }
 
 .moldura::before {
-  content: "";                           /* sem content, o ::before não aparece */
+  content: "";
   position: absolute;
-  inset: 7px;                            /* 7px para dentro, nos 4 lados */
+  inset: 7px;
   border: 1px solid var(--line-soft);
-  pointer-events: none;                  /* não atrapalha cliques */
+  pointer-events: none;
 }
-
-
-/* ===== Passo 5 — Estilizar a hora ===== */
 
 .fuso {
   font-size: 0.72rem;
@@ -60,11 +51,11 @@ body {
   font-size: clamp(2.25rem, 13vw, 6.5rem);
   line-height: 1;
   letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;    /* todos os dígitos com a mesma largura */
+  font-variant-numeric: tabular-nums;
   display: flex;
   justify-content: center;
   align-items: baseline;
-  white-space: nowrap;                   /* nunca quebra a hora em duas linhas */
+  white-space: nowrap;
 }
 
 .sep {
@@ -77,7 +68,7 @@ body {
 }
 
 .periodo {
-  font-size: 0.16em;                     /* 16% do tamanho da hora */
+  font-size: 0.16em;
   letter-spacing: 0.12em;
   color: var(--muted);
   margin-left: 0.6em;
@@ -85,11 +76,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sep { animation: none; }              /* respeita quem desativou animações */
+  .sep { animation: none; }
 }
-
-
-/* ===== Passo 6 — Estilizar régua, data e botão ===== */
 
 .regua {
   height: 2px;
@@ -101,8 +89,8 @@ body {
   display: block;
   height: 100%;
   background: var(--accent);
-  transform-origin: left center;         /* a barra cresce a partir da esquerda */
-  transform: scaleX(0);                  /* 0 = vazia, 1 = cheia */
+  transform-origin: left center;
+  transform: scaleX(0);
 }
 
 .data {
@@ -111,12 +99,12 @@ body {
 }
 
 .data::first-letter {
-  text-transform: uppercase;             /* "quarta-feira" vira "Quarta-feira" */
+  text-transform: uppercase;
 }
 
 .formato {
   justify-self: center;
-  font: inherit;                         /* botão herda a fonte da página */
+  font: inherit;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -130,6 +118,6 @@ body {
 .formato:hover { color: var(--fg); border-color: var(--line); }
 
 .formato:focus-visible {
-  outline: 2px solid var(--accent);      /* destaque para quem usa o teclado */
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
